@@ -57,7 +57,7 @@
     class Products extends React.Component{
       constructor(data){
         super(data);
-        fetch('localhost:4000/api/products').then((mongodata)=>{
+        fetch('https://trojankicks.herokuapp.com/api/products').then((mongodata)=>{
           return mongodata.json();
         }).then(json => {
           this.data = {

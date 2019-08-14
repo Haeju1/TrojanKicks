@@ -18,9 +18,11 @@ before((done)=>{
 });
 
 // Drop the product collection before each test
+/*
 beforeEach((done)=>{
   // Drop the collection
   mongoose.connection.collections.products.drop(()=>{
     done();
   });
 });
+*/

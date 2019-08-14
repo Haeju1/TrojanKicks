@@ -1,0 +1,72 @@
+<script type="text/babel">
+  console.log('hi');
+  var Products = React.createClass({
+    getInitialState: async ()=>{
+      const data = await fetch('api/products');
+      console.log('Here');
+      const jsonResult = await data.json();
+      return({
+        products: [jsonResult]
+      })
+    },
+    componentDidMount: ()=>{
+      // Fetches json of the product
+      fetch('api/products').then((data)=>{
+        console.log('hit')
+        return data.json();
+      }).then(json => {
+        this.setState({
+          products: json
+        })
+      });
+    },
+    render: ()=>{
+      var products=this.state.products;
+      products=products.map((product,index)=>{
+        return({
+          <li key={index}>
+              <span className="name">{product.obj.name}</span>
+              <span className="price">{product.obj.price}</span>
+          </li>
+        })
+      });
+      return(
+        <div id="listings">
+          <h2>Yo</h2>
+          {products}
+        </div>
+      )
+    }
+    this.setState({
+
+    }
+  })
+ReactDOM.render(</Products>, document.getElementById('listings'));
+</script>
+
+
+
+
+
+
+
+
+
+
+class Product extends React.Component{
+  console.log('hit');
+  const dataJson=[];
+  await fetch('api/products').then((data)=>{
+
+    return data.json();
+  }).then(json => {
+    dataJson=json;
+  });
+  render() {
+    return({
+      <div className="rndom">
+        <h1>Heyo</h1>
+      </div>
+    })
+  }
+}

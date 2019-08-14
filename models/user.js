@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const BookSchema = new Schema({
-    title: String,
-    pages: Number
+const userSchema = new Schema({
+  userName: {
+    type: String,
+    required: [true, "userName required"]
+  },
+  password: {
+    type: String,
+    required: [true, "password required"]
+  }
 });
 
-const AuthorSchema = new Schema({
-    name: String,
-    books: [BookSchema]
-});
+// will be in the 'product' collection
+const user = mongoose.model('user', userSchema);
 
-const Author = mongoose.model('author', AuthorSchema);
-
-module.exports = Author;
+module.exports = user;

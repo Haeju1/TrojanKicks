@@ -6,7 +6,14 @@ const productSchema = new Schema({
   price: Number,
   size: Number,
   stock: Number,
-  photoURL: String
+  photoURL: {
+    type: String,
+    required: [true, "url required"]
+  },
+  available: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 // will be in the 'product' collection

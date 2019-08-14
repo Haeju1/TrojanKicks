@@ -30,14 +30,14 @@ app.use((err,req,res,next)=>{
 });
 
 
-app.get('/api', (req,res) => {
+/*app.get('/api', (req,res) => {
   console.log('GET request');
   res.send({name: 'Haeju Jeong'});
-});
+});*/
 
 // listen for requests
 app.listen(process.env.port || 4000, () => {
-  console.log('now listening for requests');
+  console.log('now listening for requests from ');
 });
 
 /*$(document).ready(() => {

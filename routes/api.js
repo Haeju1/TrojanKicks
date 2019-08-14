@@ -7,6 +7,7 @@ const Product = require('../models/products');
 // Get list of products from the db
 router.get('/products', async (req,res,next) => {
   const result = await Product.find({});
+  console.log('sent');
   res.send(result);
 });
 

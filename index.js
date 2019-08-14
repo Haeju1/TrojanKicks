@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost:27017/TrojanKicks', { useNewUrlParser: tru
       console.log('Connection has been made successfully');
     }
     else{
-      console.log('Conneciton error:', err);
+      console.log('Connection error:', err);
     }
   });
 mongoose.Promise = global.Promise;

@@ -4,10 +4,13 @@
     <title>TrojanKicks</title>
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   </head>
   <body>
     <header class="flex-container">
-      <img id="pic" src="/Users/haeju/Desktop/Codecademy/Tea Cozy/images/img-tea-cozy-logo.png" alt="Logo">
+      <img id="pic" src="../images/kyrie.jpg" width="50px" alt="Logo">
       <nav>
         <span><a href="#sale">For Sale</a></span>
         <span><a href="#about">About</a></span>
@@ -22,42 +25,6 @@
     <div class="flex-container">
       <div id="output"></div>
       <div id="listings">
-        <div id="product1" class="product" >
-          <div class="picture_container">
-            <img id="shoe1" src="../images/presto.jpg" alt="white presto" width="200px" height="auto">
-          </div>
-          <div class="item_details">
-            <h4>Off-White Presto White Size 10</h4>
-            <h4>$700</h4>
-          </div>
-        </div>
-        <div id="product2" class="product">
-          <div class="picture_container">
-            <img id="shoe2" src="../images/lundmark.jpg" alt="white presto" width="200px" height="auto">
-          </div>
-          <div class="item_details">
-            <h4>Yeezy 350 Lundmark Size 9</h4>
-            <h4>$300</h4>
-          </div>
-        </div>
-        <div id="product3" class="product">
-          <div class="picture_container">
-            <img id="shoe3" src="../images/black_presto.jpg" alt="white presto" width="200px" height="auto">
-          </div>
-          <div class="item_details">
-            <h4>Off-White Presto Black Size 10</h4>
-            <h4>$900</h4>
-          </div>
-        </div>
-        <div id="product4" class="product" >
-          <div class="picture_container">
-            <img id="shoe4" src="../images/kyrie.jpg" alt="white presto" width="200px" height="auto">
-          </div>
-          <div class="item_details">
-            <h4>Kyrie Spongebob Size 8</h4>
-            <h4>$200</h4>
-          </div>
-        </div>
       </div>
     </div>
     <!--About-->
@@ -84,23 +51,33 @@
     -->
 
     <!-- Load scripts -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <!-- React Component -->
+
+
     <script type="text/babel">
-      class Product extends React.Component{
-        render(){
-          return (
-            <div className="things">
-              <h1> This is working </h1>
-            </div>
-          )
-        }
+    class Products extends React.Component{
+      constructor(data){
+        super(data);
+        fetch('localhost:4000/api/products').then((mongodata)=>{
+          return mongodata.json();
+        }).then(json => {
+          this.data = {
+            products: [json]
+          };
+        });
+      }
+      render(){
+        return (
+          <div className="app-content">
+            <h1> Hey </h1>
+          </div>
+        )
+
       }
 
-    ReactDOM.render(</Product>, document.getElementById('output'));
+    }
+     ReactDOM.render(<Products />,document.getElementById('listings'));
     </script>
+
   </body>
   <footer>
   </footer>

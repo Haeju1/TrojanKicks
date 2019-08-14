@@ -49,15 +49,11 @@
   crossorigin="anonymous">
     </script>
     -->
-
-    <!-- Load scripts -->
-
-
     <script type="text/babel">
     class Products extends React.Component{
       constructor(data){
         super(data);
-        fetch('/api/products').then((mongodata)=>{
+        fetch('http://localhost:4000/api/products').then((mongodata)=>{
           return mongodata.json();
         }).then(json => {
           this.data = {

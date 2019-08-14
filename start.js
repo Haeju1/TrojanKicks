@@ -2,9 +2,12 @@ const express = require('express');
 const routes = require('./routes/api');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 mongoose.set('useFindAndModify', false);
 // Set up express app/instance
 const app = express();
+Access-Control-Allow-Origin: *;
+
 
 // Connect to mongoDB and sets to ES6 promise
 mongoose.connect('mongodb://localhost:27017/TrojanKicks', { useNewUrlParser: true }, (err) =>{
@@ -20,6 +23,7 @@ mongoose.Promise = global.Promise;
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+
 // Intialize the routes with /api route
 app.use('/api', routes);
 
@@ -30,10 +34,10 @@ app.use((err,req,res,next)=>{
 });
 
 
-/*app.get('/api', (req,res) => {
+app.get('/api', (req,res) => {
   console.log('GET request');
   res.send({name: 'Haeju Jeong'});
-});*/
+});
 
 // listen for requests
 app.listen(process.env.port || 4000, () => {

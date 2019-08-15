@@ -7,12 +7,14 @@ const Product = require('../models/products');
 // Get list of products from the db
 router.get('/products', async (req,res,next) => {
   const result = await Product.find({});
-  console.log('sent');
+  console.log('sent to products');
   res.send(result);
 });
 
+
 // Add a new user to the db
 router.post('/users', async (req,res,next) => {
+  console.log('sent to users');
   User.create(req.body).then((user)=>{
     res.send(result);
   }).catch(next);

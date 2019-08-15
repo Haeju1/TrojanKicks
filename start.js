@@ -6,9 +6,7 @@ const cors = require('cors');
 mongoose.set('useFindAndModify', false);
 // Set up express app/instance
 const app = express();
-Access-Control-Allow-Origin: *;
-
-
+app.use(cors({origin: '*'}));
 // Connect to mongoDB and sets to ES6 promise
 mongoose.connect('mongodb://localhost:27017/TrojanKicks', { useNewUrlParser: true }, (err) =>{
     if(!err){
@@ -17,12 +15,11 @@ mongoose.connect('mongodb://localhost:27017/TrojanKicks', { useNewUrlParser: tru
     else{
       console.log('Connection error:', err);
     }
-  });
+});
 mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
-
 
 // Intialize the routes with /api route
 app.use('/api', routes);
@@ -30,18 +27,18 @@ app.use('/api', routes);
 // error handling middleware
 app.use((err,req,res,next)=>{
   //console.log(err);
-  res.status(422).send({error: 'hi'});
+  res.status(422).send({error: 'noi'});
 });
 
 
-app.get('/api', (req,res) => {
+/*app.get('/api', (req,res) => {
   console.log('GET request');
   res.send({name: 'Haeju Jeong'});
-});
+});*/
 
 // listen for requests
 app.listen(process.env.port || 4000, () => {
-  console.log('now listening for requests from ');
+  console.log('now listening for requests from ' );
 });
 
 /*$(document).ready(() => {

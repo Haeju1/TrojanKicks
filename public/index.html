@@ -23,7 +23,6 @@
     <!--Listings-->
     <h2>Listings</h2>
     <div class="flex-container">
-      <div id="output"></div>
       <div id="listings">
       </div>
     </div>
@@ -51,27 +50,50 @@
     -->
     <script type="text/babel">
     class Products extends React.Component{
-      constructor(data){
-        super(data);
-        fetch('http://localhost:4000/api/products').then((mongodata)=>{
-          return mongodata.json();
-        }).then(json => {
-          this.data = {
-            products: [json]
-          };
+      constructor(props){
+        super(props);
+        this.state = {
+          products: []
+        }
+      }
+      async componentDidMount(){
+        let data = await fetch('http://localhost:4000/api/products');
+        let dataJson = await data.json();
+        this.setState({
+          products: dataJson
         });
+        let products=this.state.products;
+        console.log('Data: ')
+        console.log(this.state.products);
+
       }
       render(){
-        return (
+        let products = this.state.products;
+
+        console.log(this.state.products);
+        products=products.map((product,index)=>{
+          console.log('name '+product.name);
+          return(
+            <div key={index} className="product">
+                <img src={product.photoURL}></img>
+                <div className="item_details">
+                <h1 className="name">{product.name}</h1>
+                <h1 className="price">${product.price}</h1>
+                <h1 className="stock">Stock: {product.stock}</h1>
+                </div>
+
+            </div>
+          );
+        });
+        return(
           <div className="app-content">
-            <h1> This is Working </h1>
+            <h3>{products}</h3>
           </div>
         )
       }
     }
-     ReactDOM.render(<Products />,document.getElementById('listings'));
+    ReactDOM.render(<Products />,document.getElementById('listings'));
     </script>
-
   </body>
   <footer>
   </footer>

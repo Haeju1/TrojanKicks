@@ -33,14 +33,19 @@
     <div class="about">
       <h2>About TrojanKicks</h2>
       <div class="flex-container">
-        <h2>About Me</h2>
-        <p>My name is Haeju and I am a student pursuing a degree in Computer Science and Business Administration</p>
+        <p>TrojanKicks is a local business dedicated to </p>
       </div>
     </div>
     <div class="policies">
       <h2>Policies and Guidelines</h2>
       <div class="flex-container">
-        <h2>Policies & Guidelines</h2>
+        <ol>
+          <li>There are absolutely no refunds, unless the product is deemed as a replica / fake model</li>
+          <li>All products will be shipped within one week by USPS Priority Mail</li>
+          <li>All items are brand new with original boxes</li>
+          <li>TorjanKicks is not responsible for a failed delivery due to incorrect addresses</li>
+          <li>Tracking information will be provided once item is shipped via email</li>
+        </ol>
       </div>
     </div>
     <!--
@@ -81,15 +86,15 @@
           console.log('name '+product.name);
           let purchaseLink ='http://localhost:4000/api/pay?_id='+product._id;
           return(
-            <div key={index} className="product">
+            <div key={product._id} className="product">
                 <img src={product.photoURL}></img>
                 <div className="item_details">
-                  <h1 className="name">{product.name}</h1>
+                  <h1 className="name">{product.name} Size {product.size}</h1>
                   <h1 className="price">${product.price}</h1>
-                  <h1 className="stock">Stock: {product.stock}</h1>
                   <form className="paypal" action={purchaseLink} method='post'>
-                    <input type='submit' value='buy'></input>
+                    <input type="image" id="paypal_button"src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-small.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></input>
                   </form>
+
                 </div>
 
             </div>

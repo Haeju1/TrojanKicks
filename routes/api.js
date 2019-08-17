@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const paypal = require('paypal-rest-sdk');
+const fetch = require("node-fetch");
 const User = require('../models/user');
 const Product = require('../models/products');
+const Order = require('../models/order');
 
 
 // Initializing the client_secret
@@ -15,7 +17,6 @@ paypal.configure({
 // Get list of products from the db
 router.get('/products', async (req,res,next) => {
   const result = await Product.find({});
-  console.log('sent to products');
   res.send(result);
 });
 
@@ -34,11 +35,7 @@ router.put('/users/:id', async (req,res,next) => {
   res.send(finalResult);
 });
 
-// Delete a product from the db
-router.delete('/users/:id', async (req,res,next) => {
-  const result = await User.findByIdAndRemove({_id: req.params.id});
-  res.send(result);
-});
+
 
 // Buying product from paypal
 router.post('/pay', async (req,res)=>{
@@ -108,19 +105,52 @@ router.get('/success', async (req, res) => {
         }
     }]*/
   };
-  paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
-    console.log('In the execute1s');
+paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =>{
     if (error) {
         console.log('failed')
         console.log(error.response);
         throw error;
     } else {
         console.log(JSON.stringify(payment));
+
+        // Storing transaction details into database
+        await Order.create({
+          payId: payment.id,
+          payer:{
+              payment_method: payment.payer.payment_method,
+              payer_info:{
+                 email: payment.payer.payer_info.email,
+                 first_name: payment.payer.payer_info.first_name,
+                 last_name: payment.payer.payer_info.last_name,
+                 payer_id: payment.payer.payer_info.payer_id,
+                 shipping_address:{
+                    recipient_name: payment.payer.payer_info.shipping_address.recipient_name,
+                    line1: payment.payer.payer_info.shipping_address.line1,
+                    city: payment.payer.payer_info.shipping_address.city,
+                    state: payment.payer.payer_info.shipping_address.state,
+                    postal_code: payment.payer.payer_info.shipping_address.postal_code,
+                    country_code: payment.payer.payer_info.shipping_address.country_code
+                 }
+              }
+           },
+           product:{
+             product_name: payment.transactions[0].item_list.items[0].name,
+             price: payment.transactions[0].amount.total,
+             currency: payment.transactions[0].amount.currency
+           }
+        });
+
         res.redirect('http://localhost:4000');
     }
   });
 });
 
+// Adding order to databse
+/*router.post('/orders', (req,res) =>{
+  let paymentId = req.query._paymentId;
+  console.log("Order: " + paymentId + " receieved");
+  res.send("Order: " + paymentId + " receieved");
+})*/
 // If user cancels payment
 router.get('/cancel', (req,res) => {
   res.send('Purchase cancelled');

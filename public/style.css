@@ -4,6 +4,7 @@ body{
   text-align: center;
   color: maroon;
   max-width: 100%;
+  font-size: 16px;
 }
 .flex-container{
   display: flex;
@@ -29,12 +30,13 @@ body{
   text-align: center;
   flex-direction: row;
   width: 100%;
+  font-size: .5rem;
 }
 .product{
   display: inline-flex;
   flex-direction: column;
   opacity: .9;
-  width: 33%;
+  width: 30%;
   height: auto;
   margin: 10px 10px
 }
@@ -58,7 +60,4 @@ body{
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
   background-color: grey;
   padding: 2% 2%;
-}
-#presto1{
-
 }

@@ -10,7 +10,7 @@
   </head>
   <body>
     <header class="flex-container">
-      <img id="pic" src="../images/kyrie.jpg" width="50px" alt="Logo">
+      <img id="pic" src="" alt="logo" width="50px" alt="Logo">
       <nav>
         <span><a href="#sale">For Sale</a></span>
         <span><a href="#about">About</a></span>
@@ -24,8 +24,11 @@
     <h2>Listings</h2>
     <div class="flex-container">
       <div id="listings">
+
       </div>
+
     </div>
+
     <!--About-->
     <div class="about">
       <h2>About TrojanKicks</h2>
@@ -48,6 +51,9 @@
   crossorigin="anonymous">
     </script>
     -->
+    <div id="listings">
+
+    </div>
     <script type="text/babel">
     class Products extends React.Component{
       constructor(props){
@@ -69,24 +75,28 @@
       }
       render(){
         let products = this.state.products;
-
         console.log(this.state.products);
+
         products=products.map((product,index)=>{
           console.log('name '+product.name);
+          let purchaseLink ='http://localhost:4000/api/pay?_id='+product._id;
           return(
             <div key={index} className="product">
                 <img src={product.photoURL}></img>
                 <div className="item_details">
-                <h1 className="name">{product.name}</h1>
-                <h1 className="price">${product.price}</h1>
-                <h1 className="stock">Stock: {product.stock}</h1>
+                  <h1 className="name">{product.name}</h1>
+                  <h1 className="price">${product.price}</h1>
+                  <h1 className="stock">Stock: {product.stock}</h1>
+                  <form className="paypal" action={purchaseLink} method='post'>
+                    <input type='submit' value='buy'></input>
+                  </form>
                 </div>
 
             </div>
           );
         });
         return(
-          <div className="app-content">
+          <div className="listings">
             <h3>{products}</h3>
           </div>
         )

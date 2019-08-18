@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 mongoose.set('useFindAndModify', false);
+const Product = require('./models/products');
 // Set up express app/instance
 const app = express();
 app.use(cors({origin: '*'}));

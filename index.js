@@ -27,7 +27,7 @@ app.use('/api', routes);
 // error handling middleware
 app.use((err,req,res,next)=>{
   //console.log(err);
-  res.status(422).send({error: 'noi'});
+  res.status(422).send({error: err});
 });
 
 // listen for requests

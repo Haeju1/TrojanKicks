@@ -8,7 +8,8 @@ mongoose.set('useFindAndModify', false);
 const app = express();
 app.use(cors({origin: '*'}));
 // Connect to mongoDB and sets to ES6 promise
-mongoose.connect('mongodb://localhost:27017/TrojanKicks', { useNewUrlParser: true }, (err) =>{
+mongoose.connect('mongodb+srv://Haeju:<14179480>@trojankickscluster-zqmpc.mongodb.net/test?retryWrites=true&w=majority
+', { useNewUrlParser: true }, (err) =>{
     if(!err){
       console.log('Connection has been made successfully');
     }

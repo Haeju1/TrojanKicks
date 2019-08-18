@@ -40,7 +40,7 @@ app.use((err,req,res,next)=>{
 // listen for requests
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
-  console.log('now listening for requests from ' port);
+  console.log('now listening for requests from port: ' + port);
 });
 
 /*$(document).ready(() => {

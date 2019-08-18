@@ -11,10 +11,10 @@ app.use(cors({origin: '*'}));
 let uri='mongodb+srv://Haeju:14174980@trojankickscluster-zqmpc.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(uri, { useNewUrlParser: true }, (err) =>{
     if(!err){
-      console.log('Connection has been made successfully');
+      console.log('Connection has been made successfully to mongoDB');
     }
     else{
-      console.log('Connection error:', err);
+      console.log('Connection error for mongoDB:', err);
     }
 });
 mongoose.Promise = global.Promise;
@@ -38,8 +38,9 @@ app.use((err,req,res,next)=>{
 });*/
 
 // listen for requests
-app.listen(process.env.port || 4000, () => {
-  console.log('now listening for requests from ' );
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log('now listening for requests from ' port);
 });
 
 /*$(document).ready(() => {

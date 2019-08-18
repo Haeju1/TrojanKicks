@@ -8,7 +8,7 @@ before((done)=>{
   // Connect to mongoDB
   mongoose.connect('mongodb+srv://Haeju:14174980@trojankickscluster-zqmpc.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true }, (err) =>{
     if(!err){
-      console.log('Connection has been made successfully');
+      console.log('Connection has been made successfully to mongoDB in connection');
       done();
     }
     else{

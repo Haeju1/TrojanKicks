@@ -24,7 +24,7 @@ router.get('*', (req, res) => {
 
 // Get list of products from the db
 router.get('/products', async (req,res,next) => {
-  console.log('hit');
+  console.log('Hit the get request');
   const result = await Product.find({});
   console.log('Products:  ' +result)
   res.send(result);

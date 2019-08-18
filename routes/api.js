@@ -13,29 +13,22 @@ paypal.configure({
   'client_id': 'Ady7_-Q1W5Q9yTtJeRSjM3LF-YPXyKe0IjXCBeRwO3HtdLVmtMbV0TI5OHFr0IQIedjCgYiMTnIWEwO9',
   'client_secret': 'ECGP6KeDrv0yAe1YInByJVRABnhzA7J32Ry80TurCEvMdBIt_kFAeQdhReHHOwIK5wF3EfJxeuNnSrPq'
 });
+/*
+if(process.env.NODE_ENV === 'production'){
+    //set static folder
+    router.use(express.static('../public'));
+};
+router.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});*/
 
 // Get list of products from the db
-router.get('/products', async (req,res,next) => {
+router.get('https://trojankicks.herokuapp.com/api/products', async (req,res,next) => {
+  console.log('hit');
   const result = await Product.find({});
+  console.log('Products:  ' +result)
   res.send(result);
 });
-
-// Add a new user to the db
-router.post('/users', async (req,res,next) => {
-  console.log('sent to users');
-  User.create(req.body).then((user)=>{
-    res.send(result);
-  }).catch(next);
-});
-
-// Update a product from the db
-router.put('/users/:id', async (req,res,next) => {
-  const result = await User.findByIdAndUpdate({_id: req.params.id},req.body);
-  const finalResult = await User.findOne({_id: req.params.id});
-  res.send(finalResult);
-});
-
-
 
 // Buying product from paypal
 router.post('/pay', async (req,res)=>{

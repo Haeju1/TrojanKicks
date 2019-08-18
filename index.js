@@ -8,8 +8,7 @@ mongoose.set('useFindAndModify', false);
 const app = express();
 app.use(cors({origin: '*'}));
 // Connect to mongoDB and sets to ES6 promise
-let uri='mongodb+srv://Haeju:14174980@trojankickscluster-zqmpc.mongodb.net/test?retryWrites=true&w=majority';
-mongoose.connect(uri, { useNewUrlParser: true }, (err) =>{
+mongoose.connect('mongodb+srv://Haeju:14174980@trojankickscluster-zqmpc.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true }, (err) =>{
     if(!err){
       console.log('Connection has been made successfully to mongoDB');
     }
@@ -19,7 +18,7 @@ mongoose.connect(uri, { useNewUrlParser: true }, (err) =>{
 });
 mongoose.Promise = global.Promise;
 
-app.use(express.static('public'));
+app.use(express.static('./public'));
 app.use(express.json());
 
 // Intialize the routes with /api route
@@ -31,83 +30,8 @@ app.use((err,req,res,next)=>{
   res.status(422).send({error: 'noi'});
 });
 
-
-/*app.get('/api', (req,res) => {
-  console.log('GET request');
-  res.send({name: 'Haeju Jeong'});
-});*/
-
 // listen for requests
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log('now listening for requests from port: ' + port);
 });
-
-/*$(document).ready(() => {
-  $('#product1').on('mouseover', () =>{
-    $('#shoe1').animate({
-      width: '300px',
-      height: 'auto',
-
-    }, 60)
-    //$('#presto1').hide();
-  })
-  $('#product1').on('mouseleave', () =>{
-    $('#shoe1').animate({
-      width: '200px',
-      height: 'auto',
-
-    }, 60)
-  })
-
-
-  $('#product2').on('mouseover', () =>{
-    $('#shoe2').animate({
-      width: '300px',
-      height: 'auto',
-
-    }, 60)
-    //$('#presto1').hide();
-  })
-  $('#product2').on('mouseleave', () =>{
-    $('#shoe2').animate({
-      width: '200px',
-      height: 'auto',
-
-    }, 60)
-  })
-
-
-  $('#product3').on('mouseover', () =>{
-    $('#shoe3').animate({
-      width: '300px',
-      height: 'auto',
-
-    }, 60)
-    //$('#presto1').hide();
-  })
-  $('#product3').on('mouseleave', () =>{
-    $('#shoe3').animate({
-      width: '200px',
-      height: 'auto',
-
-    }, 60)
-  })
-
-
-  $('#product4').on('mouseover', () =>{
-    $('#shoe4').animate({
-      width: '300px',
-      height: 'auto',
-
-    }, 60)
-    //$('#presto1').hide();
-  })
-  $('#product4').on('mouseleave', () =>{
-    $('#shoe4').animate({
-      width: '200px',
-      height: 'auto',
-
-    }, 60)
-  })
-});*/

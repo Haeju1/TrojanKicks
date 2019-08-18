@@ -51,8 +51,8 @@ router.post('/pay', async (req,res)=>{
         "payment_method": "paypal"
     },
     "redirect_urls": {
-        "return_url": "http://localhost:4000/api/success",
-        "cancel_url": "http://localhost:4000/api/cancel"
+        "return_url": "https://trojankicks.herokuapp.com/api/success",
+        "cancel_url": "https://trojankicks.herokuapp.com/api/cancel"
     },
     "transactions": [{
         "item_list": {
@@ -140,7 +140,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
            }
         });
 
-        res.redirect('http://localhost:4000');
+        res.redirect('https://trojankicks.herokuapp.com');
     }
   });
 });

@@ -23,7 +23,7 @@ router.get('*', (req, res) => {
 });*/
 
 // Get list of products from the db
-router.get('https://trojankicks.herokuapp.com/api/products', async (req,res,next) => {
+router.get('/products', async (req,res,next) => {
   console.log('hit');
   const result = await Product.find({});
   console.log('Products:  ' +result)

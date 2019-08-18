@@ -5,13 +5,13 @@ const fetch = require("node-fetch");
 const User = require('../models/user');
 const Product = require('../models/products');
 const Order = require('../models/order');
-
+require('dotenv').config();
 
 // Initializing the client_secret
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
-  'client_id': 'Ady7_-Q1W5Q9yTtJeRSjM3LF-YPXyKe0IjXCBeRwO3HtdLVmtMbV0TI5OHFr0IQIedjCgYiMTnIWEwO9',
-  'client_secret': 'ECGP6KeDrv0yAe1YInByJVRABnhzA7J32Ry80TurCEvMdBIt_kFAeQdhReHHOwIK5wF3EfJxeuNnSrPq'
+  'client_id': process.env.CLIENT_ID,
+  'client_secret': process.env.CLIENT_SECRET
 });
 /*
 if(process.env.NODE_ENV === 'production'){
@@ -25,7 +25,7 @@ router.get('*', (req, res) => {
 // Get list of products from the db
 router.get('/products', async (req,res,next) => {
   console.log('Hit the get request');
-  const result = await Product.find({});
+  const result = await Product.find().toArray();
   console.log('Products:  ' +result)
   res.send(result);
 });

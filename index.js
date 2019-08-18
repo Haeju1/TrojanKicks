@@ -3,13 +3,14 @@ const routes = require('./routes/api');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
 mongoose.set('useFindAndModify', false);
 const Product = require('./models/products');
 // Set up express app/instance
 const app = express();
 app.use(cors({origin: '*'}));
 // Connect to mongoDB and sets to ES6 promise
-mongoose.connect('mongodb+srv://Haeju:14174980@trojankickscluster-zqmpc.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true }, (err) =>{
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err) =>{
     if(!err){
       console.log('Connection has been made successfully to mongoDB');
     }

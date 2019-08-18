@@ -68,7 +68,7 @@
         }
       }
       async componentDidMount(){
-        let data = await fetch('http://localhost:4000/api/products');
+        let data = await fetch('https://trojankicks.herokuapp.com/api/products');
         let dataJson = await data.json();
         this.setState({
           products: dataJson
@@ -84,7 +84,7 @@
 
         products=products.map((product,index)=>{
           console.log('name '+product.name);
-          let purchaseLink ='http://localhost:4000/api/pay?_id='+product._id;
+          let purchaseLink ='https://trojankicks.herokuapp.com/api/pay?_id='+product._id;
           return(
             <div key={product._id} className="product">
                 <img src={product.photoURL}></img>

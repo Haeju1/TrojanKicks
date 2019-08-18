@@ -2,12 +2,13 @@
   "name": "TrojanKicks",
   "version": "1.0.0",
   "description": "",
-  "main": "start.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

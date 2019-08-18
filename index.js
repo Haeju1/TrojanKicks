@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/TrojanKicks', { useNewUrlParser: tru
 mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Intialize the routes with /api route
 app.use('/api', routes);

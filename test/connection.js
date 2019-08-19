@@ -7,7 +7,7 @@ mongoose.Promise = global.Promise;
 // Connect to the db before testing
 before((done)=>{
   // Connect to mongoDB
-  mongoose.connect(MONGO_URI, { useNewUrlParser: true }, (err) =>{
+  mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err) =>{
     if(!err){
       console.log('Connection has been made successfully to mongoDB in connection');
       done();

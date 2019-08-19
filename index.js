@@ -9,6 +9,28 @@ const Product = require('./models/products');
 // Set up express app/instance
 const app = express();
 app.use(cors({origin: '*'}));
+
+/*
+const MongoClient = require('mongodb').MongoClient;
+const uri = process.env.MONGO_URI;
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(async (err)=> {
+  if(!err){
+    const collection = client.db("test").collection("orders");
+    const result = await collection.findOne({name: 'gecko'});
+    // const result = await client.db("test").collection("orders").findOne({name: 'gecko'});
+    console.log('Works?!: '+result.age);
+    console.log('Connection has been made successfully to mongoDB');
+   // perform actions on the collection object
+  }
+  else{
+    console.log('Connection error for mongoDB:', err);
+  }
+  client.close();
+});
+*/
+
+
 // Connect to mongoDB and sets to ES6 promise
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err) =>{
     if(!err){

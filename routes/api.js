@@ -6,9 +6,6 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Product = require('../models/products');
 const Order = require('../models/order');
-/*
-let connection = mongoose.createConnection(process.env.MONGO_URI, { useNewUrlParser: true });
-let products = connection.model('product', Product);*/
 
 
 require('dotenv').config();
@@ -32,9 +29,6 @@ router.get('*', (req, res) => {
 router.get('/product', async (req,res,next) => {
   console.log('Hit the get request');
   const result = await Product.find({});
-  /*
-  const result = await client.db('TrojanKicks').collection('products').find({});
-  console.log('Products:  ' + result)*/
   console.log('Products:  ' + result)
   res.send(result);
 });

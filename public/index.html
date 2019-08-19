@@ -10,7 +10,6 @@
   </head>
   <body>
     <header class="flex-container">
-      <img id="pic" src="" alt="logo" width="50px" alt="Logo">
       <nav>
         <span><a href="#sale">For Sale</a></span>
         <span><a href="#about">About</a></span>
@@ -18,22 +17,32 @@
       </nav>
     </header>
     <div class="main">
-      <h1>TrojanKicks</h1>
+      <div class="flex-container">
+        <img id="pic" src="https://lh3.googleusercontent.com/h3rvm6-y96Ldqh-Q2IC9XyUS1LpVu-ZxMAvB8CLmcE6K62xsJfdJ6ZoH5mHP_58GQVsXYYZoe7bGyB-ULJm6K8mis717IXi2Em-QgALzGI5wJYLtGA-fsKiorVh_9VXjO7el_PWeMYgmOVfuw2m0SMoenccF76O6LwW8teNXev0P6T7IctDTG8_lcJmd3Wbrd8vi1fXYDWKwIrmNF9sAp8VYYXBM5aLLcylXYTgBcPyr3HdijMH-duox4MuLMGVG9iuE5CCLcVhxOdmtXibbclP3U-uLIiJw3HqYQ4bl868ZnqZEHRKdTNgUXHOwHoX9NIQK3BWI4Y8SGLl5Lhl5C1d9R6nOtUZKmpaci1OncaAuwCEcgMb6Vv6KZVMZxY5xAHLAsKnRz-RZOsuJGaSKamMOdf2i7ICV2gWDurE9HuRrb8uTtmsQXMisMcBJjKQIujZhISMLa6xrI18Snh4FL72h0osEm6FLic-tAIvj65tVpSGwBkxefSXkGOdfkvYMX738H5WNSTSSAPdcMFuD5sRXFOAd6ajenp16eWeKxWNt2cBXv7UZ0aZpGMAKOJkRvjA1Rsn4YdTgXBPM0Y3ZBL5otq1tqrAnx5jtxojb0J11BZZSVZDw65h4EIvHGrVcSU4jg-51_xcA75KmeuSDQQUGnxcvxg=w498-h497-no"
+        alt="logo" width="200px" alt="Logo">
+        <h1>TrojanKicks</h1>
+      </div>
+
     </div>
     <!--Listings-->
-    <h2>Listings</h2>
-    <div class="flex-container">
-      <div id="listings">
+    <div id="sale">
+      <h2>Listings</h2>
+      <div class="flex-container">
+        <div id="listings">
+        </div>
       </div>
     </div>
+
     <!--About-->
-    <div class="about">
+    <div id="about">
       <h2>About TrojanKicks</h2>
       <div class="flex-container">
-        <p>TrojanKicks is a local business run by students looking to serve as a merchant for in-demand shoes</p>
+        <p>Hi my name is Haeju Jeong, and I am the owner of TrojanKicks. This business serves as a combination of my interests in sneaker resell
+          and web development. This website was coded with Node.js and hosted on heroku. Data regarding products and order details are stored on mongoDB Atlas.
+          All payments are handled and stored securely via Paypal. Stripe will be implemented in the coming weeks.</p>
       </div>
     </div>
-    <div class="policies">
+    <div id="policies">
       <h2>Policies and Guidelines</h2>
       <div class="flex-container">
         <ol>

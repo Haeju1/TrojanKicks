@@ -1,11 +1,12 @@
-header {
-  
+header a{
+  color: black;
+  padding: 10px 10px;
 }
 body{
   background-color: white;
   font-family: "Nunito Sans";
   text-align: center;
-  color: maroon;
+  color: darkgreen;
   max-width: 100%;
   font-size: 16px;
 }
@@ -13,19 +14,21 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: pink;
-  border: 3px solid maroon;
+  background-color: lightgreen;
 }
 .header{
 
 }
 .main{
   /*background-image: url("./header_background.jpg");*/
-  background-color: pink;
+  background-color: lightgreen;
   text-align: center;
-  color: maroon;
   font-size: 300%;
-  border: 3px solid maroon;
+  border: 3px solid darkgreen;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 10px;
 }
 
 #listings{
@@ -55,7 +58,6 @@ body{
 .item {
   display: inline-flex;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
-  border: 2px solid black;
   background-color: white;
   margin: 10px 10px;
   padding: 20px 20px;
@@ -64,19 +66,25 @@ body{
   display: inline-flex;
   justify-content: space-between;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
-  background-color: grey;
+  background-color: darkgreen;
+  color: lightgreen;
   padding: 2% 2%;
 }
 
 #paypal_button{
-  background-color: grey;
+  background-color: darkgreen;
   display: inline-flex;
   align-items: center;
-  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.5);
   padding: 2% 2%;
 }
-.policies ol{
+#policies ol{
   width: 80%
-  padding: 0 10px;
+  padding: 10px 10px;
   margin: 0px auto;
+}
+#about p{
+  width: 60%;
+  margin: 0px auto;
+  padding: 10px 10px;
 }

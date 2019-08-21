@@ -142,11 +142,11 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
 });
 
 // Adding order to databse
-/*router.post('/orders', (req,res) =>{
+router.post('/orders', (req,res) =>{
   let paymentId = req.query._paymentId;
   console.log("Order: " + paymentId + " receieved");
   res.send("Order: " + paymentId + " receieved");
-})*/
+})
 // If user cancels payment
 router.get('/cancel', (req,res) => {
   res.send('Purchase cancelled');

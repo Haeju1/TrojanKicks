@@ -1,4 +1,2 @@
-Live at
-https://trojankicks.herokuapp.com/
-
-An online store to expand my shoe selling my business.
+# https://trojankicks.herokuapp.com/
+Dynamic web store to sell sneakers and maximize profits. Data stored in mongoDB Atlas

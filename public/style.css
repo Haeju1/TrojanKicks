@@ -66,17 +66,15 @@ body{
   display: inline-flex;
   justify-content: space-between;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
-  background-color: darkgreen;
-  color: lightgreen;
   padding: 2% 2%;
+  width: 100%;
+  height: 100%;
 }
 
 #paypal_button{
-  background-color: darkgreen;
   display: inline-flex;
   align-items: center;
-  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.5);
-  padding: 2% 2%;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.5\1);
 }
 #policies ol{
   width: 80%

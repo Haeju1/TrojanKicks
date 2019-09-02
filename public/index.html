@@ -110,7 +110,8 @@ class Products extends React.Component{
             <img src={product.photoURL}></img>
             <div className="item_details">
               <div className="w3-container w3-white">
-                <h1 className="name">{product.name} Size {product.size}</h1>
+                <h1 className="name">{product.name}</h1>
+                <h1 className="name">Size {product.size}</h1>
                 <h1 className="price">${product.price}</h1>
                 <form className="w3-container w3-white" action={purchaseLink} method='post'>
                   <input type="image" id="paypal_button"src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-small.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></input>

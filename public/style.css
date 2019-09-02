@@ -47,7 +47,8 @@ body{
   margin: 10px 10px
 }
 #listings img{
-  height: 300px;
+  width: 100%;
+
 }
 .picture_container{
   background-color: white;

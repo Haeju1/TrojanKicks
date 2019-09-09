@@ -15,8 +15,6 @@ const Products = React.Component{
       products: dataJson
     });
     let products=this.state.products;
-    console.log('Data: ')
-    console.log(this.state.products);
   }
   render(){
     let products = this.state.products;

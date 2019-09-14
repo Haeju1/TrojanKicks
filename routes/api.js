@@ -7,7 +7,7 @@ const User = require('../models/user');
 const Product = require('../models/products');
 const Order = require('../models/order');
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.LAVA_KEY);
+
 
 require('dotenv').config();
 
@@ -134,6 +134,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
           text: 'and easy to do anywhere, even with Node.js',
           html: '<strong>and easy to do anywhere, even with Node.js</strong>',
         };
+        sgMail.setApiKey(process.env.LAVA_KEY);
         sgMail.send(msg);
         res.redirect('https://trojankicks.herokuapp.com/checkout.html');
     }

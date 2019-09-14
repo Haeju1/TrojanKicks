@@ -7,6 +7,7 @@ const User = require('../models/user');
 const Product = require('../models/products');
 const Order = require('../models/order');
 const sgMail = require('@sendgrid/mail');
+const axios = require('axios');
 
 
 require('dotenv').config();
@@ -127,8 +128,16 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
              currency: payment.transactions[0].amount.currency
            }
         });
-
-        res.redirect('https://trojankicks.herokuapp.com/checkout.html');
+        axios.get('/confirmation')
+        .then((response) => {
+          if(response != null) {
+            //route to next page?
+            res.redirect('https://trojankicks.herokuapp.com/checkout.html');
+          }
+        })
+        .catch((err) => {
+          console.log("Error");
+        })
     }
   });
 });
@@ -137,12 +146,11 @@ router.post('/confirmation', (req,res) =>{
   const msg = {
     to: 'jhaeju00@gmail.com',
     from: 'jhaeju00@gmail.com',
-    subject: 'Sending with Twilio SendGrid is Fun',
+    subject: 'Order confirme',
     text: 'and easy to do anywhere, even with Node.js',
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
   };
   sgMail.send(msg);
-  res.redirect('https://trojankicks.herokuapp.com/checkout.html');
 })
 // Adding order to databse
 router.get('/orders', (req,res) =>{

@@ -141,6 +141,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
 });
 router.get('/confirmation', (req,res) =>{
   sgMail.setApiKey(process.env.LAVA_KEY);
+  console.log(process.env.LAVA_KEY);
   const msg = {
     to: 'haeju405@gmail.com',
     from: 'trojankicks@gmail.com',

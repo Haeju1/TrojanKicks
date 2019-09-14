@@ -131,10 +131,13 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
         axios.get('/confirmation').then((response) => {
           if(response != null) {
             //route to next page?
+            res.redirect('https://trojankicks.herokuapp.com/checkout.html');
           }
         }).catch((err) => {
           console.log("Error");
         })
+
+        res.redirect('https://trojankicks.herokuapp.com/checkout.html');
     }
   });
 });
@@ -150,7 +153,6 @@ router.get('/confirmation', (req,res) =>{
   sgMail.send(msg);
   console.log(msg);
   console.log('ho');
-  res.redirect('https://trojankicks.herokuapp.com/checkout.html');
   res.send("");
 })
 // Adding order to databse

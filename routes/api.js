@@ -128,8 +128,8 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
            }
         });
         const msg = {
-          to: "haeju405@gmail.com",
-          from: "haeju405@gmail.com",
+          to: "test@example.com",
+          from: "test@example.com",
           subject: "TrojanKicks Order Confirmed ",
           text: "Heyo",
           html: "<h1>hi mom </h1>",

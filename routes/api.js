@@ -130,30 +130,28 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
         });
         axios.get('/confirmation').then((response) => {
           if(response != null) {
+            console.log('s');
             //route to next page?
-            res.redirect('https://trojankicks.herokuapp.com/checkout.html');
           }
         }).catch((err) => {
           console.log("Error");
         })
-
-        res.redirect('https://trojankicks.herokuapp.com/checkout.html');
     }
   });
 });
 router.get('/confirmation', (req,res) =>{
   sgMail.setApiKey(process.env.LAVA_KEY);
   const msg = {
-  to: 'haeju407@gmail.com',
-  from: 'test@example.com',
-  subject: 'Order confrimed!',
-  text: 'Thank you',
-  html: '<strong>Your order is confirmed and the tracking number will be sent once the product is shipped. Thank you!</strong>',
-};
+    to: 'haeju407@gmail.com',
+    from: 'test@example.com',
+    subject: 'Order Confirmed',
+    text: 'Thank you!',
+    html: '<strong>Thank you for your order! Shipping information will be sent soon!</strong>',
+  };
   sgMail.send(msg);
   console.log(msg);
   console.log('ho');
-  res.send("");
+  res.redirect('https://trojankicks.herokuapp.com/checkout.html');
 })
 // Adding order to databse
 router.get('/orders', (req,res) =>{

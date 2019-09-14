@@ -128,7 +128,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
              currency: payment.transactions[0].amount.currency
            }
         });
-        res.redirect('https://trojankicks.herokuapp.com/checkout.html');
+        res.redirect('https://trojankicks.herokuapp.com/api/checkout');
         // axios.get('https://trojankicks.herokuapp.com/api/confirmation').then((response) => {
         //   if(response != null) {
         //     console.log('s');

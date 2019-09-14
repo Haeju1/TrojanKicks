@@ -142,6 +142,7 @@ router.post('/confirmation', (req,res) =>{
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
   };
   sgMail.send(msg);
+  res.redirect('https://trojankicks.herokuapp.com/checkout.html');
 })
 // Adding order to databse
 router.get('/orders', (req,res) =>{

@@ -128,7 +128,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
              currency: payment.transactions[0].amount.currency
            }
         });
-        axios.get('/confirmation')
+        axios.get('/confirmation', Order)
         .then((response) => {
           if(response != null) {
             //route to next page?
@@ -142,13 +142,13 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
   });
 });
 router.post('/confirmation', (req,res) =>{
-  sgMail.setApiKey('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');
+  sgMail.setApiKey(process.env.LAVA_KEY);
   const msg = {
     to: 'jhaeju00@gmail.com',
     from: 'jhaeju00@gmail.com',
-    subject: 'Order confirme',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    subject: 'Order confirmed!',
+    text: 'Hi, your oder has been confrimed and you will receive shipping information once we ship your shoes out. Thank you!',
+    html: 'Hi, your oder has been confrimed and you will receive shipping information once we ship your shoes out. Thank you!',
   };
   sgMail.send(msg);
 })

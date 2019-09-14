@@ -133,7 +133,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
             //route to next page?
           }
         }).catch((err) => {
-          console.log("Error");
+          console.log("Error in confirmation");
         })
         res.redirect('https://trojankicks.herokuapp.com/checkout.html');
     }
@@ -141,6 +141,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
 });
 router.get('/confirmation', (req,res) =>{
   sgMail.setApiKey(process.env.LAVA_KEY);
+  console.log("in confirmation");
   console.log(process.env.LAVA_KEY);
   const msg = {
     to: 'haeju405@gmail.com',

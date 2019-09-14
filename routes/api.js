@@ -128,7 +128,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
              currency: payment.transactions[0].amount.currency
            }
         });
-        axios.get('/confirmation').then((response) => {
+        axios.get('https://trojankicks.herokuapp.com/api/confirmation').then((response) => {
           if(response != null) {
             console.log('s');
             //route to next page?
@@ -139,7 +139,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
     }
   });
 });
-router.get('/confirmation', (req,res) =>{
+router.get('https://trojankicks.herokuapp.com/api/confirmation', (req,res) =>{
   sgMail.setApiKey(process.env.LAVA_KEY);
   const msg = {
     to: 'haeju407@gmail.com',

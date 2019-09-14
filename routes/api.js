@@ -151,6 +151,7 @@ router.get('/confirmation', (req,res) =>{
   console.log(msg);
   console.log('ho');
   res.redirect('https://trojankicks.herokuapp.com/checkout.html');
+  res.send("");
 })
 // Adding order to databse
 router.get('/orders', (req,res) =>{

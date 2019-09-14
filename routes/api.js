@@ -22,15 +22,6 @@ router.get('/product', async (req,res,next) => {
   console.log('Hit the get request');
   const result = await Product.find({});
   console.log('Products:  ' + result)
-  sgMail.setApiKey(process.env.LAVA_KEY);
-  const msg = {
-    to: 'jhaeju00@gmail.com',
-    from: 'jhaeju00@gmail.com',
-    subject: 'Sending with Twilio SendGrid is Fun',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-  };
-  sgMail.send(msg);
   res.send(result);
 });
 
@@ -141,9 +132,19 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
     }
   });
 });
-
+router.post('/confirmation', (req,res) =>{
+  sgMail.setApiKey('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');
+  const msg = {
+    to: 'jhaeju00@gmail.com',
+    from: 'jhaeju00@gmail.com',
+    subject: 'Sending with Twilio SendGrid is Fun',
+    text: 'and easy to do anywhere, even with Node.js',
+    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+  };
+  sgMail.send(msg);
+})
 // Adding order to databse
-router.post('/orders', (req,res) =>{
+router.get('/orders', (req,res) =>{
   let paymentId = req.query._paymentId;
   console.log("Order: " + paymentId + " receieved");
   res.send("Order: " + paymentId + " receieved");

@@ -152,7 +152,7 @@ router.get('/confirmation', (req,res) =>{
   };
   sgMail.send(msg);
   console.log(msg);
-  res.send('');
+  res.send('Order confirmation email has been sent!');
 
 })
 // Adding order to databse

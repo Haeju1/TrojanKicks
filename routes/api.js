@@ -16,15 +16,6 @@ paypal.configure({
   'client_id': process.env.CLIENT_ID,
   'client_secret': process.env.CLIENT_SECRET
 });
-/*
-if(process.env.NODE_ENV === 'production'){
-    //set static folder
-    router.use(express.static('../public'));
-};
-router.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '../public', 'index.html'));
-});*/
-
 // Get list of products from the db
 router.get('/product', async (req,res,next) => {
   console.log('Hit the get request');
@@ -136,7 +127,8 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
            }
         });
 
-        res.redirect('https://trojankicks.herokuapp.com');
+        res.redirect('https://www.youtube.com/watch?v=GmzUr4Tdeb0');
+        console.log("hit");
     }
   });
 });

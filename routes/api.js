@@ -140,7 +140,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
     }
   });
 });
-router.get('/confirmation', (req,res) =>{
+router.get('https://trojankicks.herokuapp.com/confirmation', (req,res) =>{
   sgMail.setApiKey(process.env.LAVA_KEY);
   const msg = {
     to: 'haeju407@gmail.com',

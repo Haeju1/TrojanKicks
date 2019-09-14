@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Product = require('../models/products');
 const Order = require('../models/order');
-
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.LAVA_KEY);
 
 require('dotenv').config();
 
@@ -126,8 +127,15 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
              currency: payment.transactions[0].amount.currency
            }
         });
-
-        res.redirect('https://www.youtube.com/watch?v=GmzUr4Tdeb0');
+        const msg = {
+          to: "haeju405@gmail.com",
+          from: "haeju405@gmail.com",
+          subject: "TrojanKicks Order Confirmed ",
+          text: "Heyo",
+          html: "<h1>hi mom </h1>",
+        }
+        sgMail.send(msg);
+        res.redirect('https://trojankicks.herokuapp.com/checkout.html');
         console.log("hit");
     }
   });

@@ -128,15 +128,14 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
            }
         });
         const msg = {
-          to: "test@example.com",
-          from: "test@example.com",
-          subject: "TrojanKicks Order Confirmed ",
-          text: "Heyo",
-          html: "<h1>hi mom </h1>",
-        }
+          to: 'test@example.com',
+          from: 'test@example.com',
+          subject: 'Sending with Twilio SendGrid is Fun',
+          text: 'and easy to do anywhere, even with Node.js',
+          html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        };
         sgMail.send(msg);
         res.redirect('https://trojankicks.herokuapp.com/checkout.html');
-        console.log("hit");
     }
   });
 });

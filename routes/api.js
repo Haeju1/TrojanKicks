@@ -135,6 +135,7 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
         }).catch((err) => {
           console.log("Error");
         })
+        res.redirect('https://trojankicks.herokuapp.com/checkout.html');
     }
   });
 });
@@ -145,11 +146,12 @@ router.get('/confirmation', (req,res) =>{
     from: 'trojankicks@gmail.com',
     subject: 'Order confirmed!',
     text: '',
-    html: '<strong>Hi, thank you for your oder at TrojanKicks!</strong><p>Your order has been received and will ship out within the next three business days. will receive the tracking number once they are shipped.</p>',
+    html: '<strong>Hi, thank you for your oder at TrojanKicks! Your order has been received and will ship out within the next three business days. will receive the tracking number once they are shipped.</strong>',
   };
   sgMail.send(msg);
   console.log(msg);
-  res.redirect('https://trojankicks.herokuapp.com/checkout.html');
+  res.send('');
+
 })
 // Adding order to databse
 router.get('/orders', (req,res) =>{

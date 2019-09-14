@@ -133,27 +133,24 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
             //route to next page?
           }
         }).catch((err) => {
-          console.log("Error in confirmation");
+          console.log("Error");
         })
-        res.redirect('https://trojankicks.herokuapp.com/checkout.html');
     }
   });
 });
 router.get('/confirmation', (req,res) =>{
   sgMail.setApiKey(process.env.LAVA_KEY);
-  console.log("in confirmation");
-  console.log(process.env.LAVA_KEY);
   const msg = {
-    to: 'haeju405@gmail.com',
-    from: 'trojankicks@gmail.com',
-    subject: 'Order confirmed!',
-    text: '',
-    html: '<strong>Hi, thank you for your oder at TrojanKicks! Your order has been received and will ship out within the next three business days. will receive the tracking number once they are shipped.</strong>',
-  };
+  to: 'haeju407@gmail.com',
+  from: 'trojankicks@gmail.com',
+  subject: 'Order confrimed!',
+  text: 'Thank you',
+  html: '<strong>Your order is confirmed and the tracking number will be sent once the product is shipped. Thank you!</strong>',
+};
   sgMail.send(msg);
   console.log(msg);
-  res.send('Order confirmation email has been sent!');
-
+  console.log('ho');
+  res.redirect('https://trojankicks.herokuapp.com/checkout.html');
 })
 // Adding order to databse
 router.get('/orders', (req,res) =>{

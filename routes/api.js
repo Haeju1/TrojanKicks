@@ -145,7 +145,7 @@ router.get('/confirmation', (req,res) =>{
   sgMail.setApiKey(process.env.LAVA_KEY);
   const msg = {
   to: 'haeju407@gmail.com',
-  from: 'test@example',
+  from: 'test@example.com',
   subject: 'Order confrimed!',
   text: 'Thank you',
   html: '<strong>Your order is confirmed and the tracking number will be sent once the product is shipped. Thank you!</strong>',

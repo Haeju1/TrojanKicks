@@ -128,29 +128,27 @@ paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =
              currency: payment.transactions[0].amount.currency
            }
         });
-        axios.get('/confirmation', Order)
-        .then((response) => {
+        axios.get('/confirmation').then((response) => {
           if(response != null) {
             //route to next page?
-            res.redirect('https://trojankicks.herokuapp.com/checkout.html');
           }
-        })
-        .catch((err) => {
+        }).catch((err) => {
           console.log("Error");
         })
     }
   });
 });
-router.post('/confirmation', (req,res) =>{
-  sgMail.setApiKey(process.env.LAVA_KEY);
+router.get('/confirmation', (req,res) =>{
+  sgMail.setApiKey('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');
   const msg = {
-    to: 'jhaeju00@gmail.com',
+    to: 'haeju405@gmail.com',
     from: 'jhaeju00@gmail.com',
     subject: 'Order confirmed!',
-    text: 'Hi, your oder has been confrimed and you will receive shipping information once we ship your shoes out. Thank you!',
-    html: 'Hi, your oder has been confrimed and you will receive shipping information once we ship your shoes out. Thank you!',
+    text: 'yoyo',
+    html: 'Hi ',
   };
   sgMail.send(msg);
+  res.redirect('https://trojankicks.herokuapp.com/checkout.html');
 })
 // Adding order to databse
 router.get('/orders', (req,res) =>{

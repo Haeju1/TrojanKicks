@@ -8,7 +8,6 @@ const Products = React.Component{
     }
   }
   async componentDidMount(){
-    console.log('Before trying to get products');
     let data = await fetch('https://trojankicks.herokuapp.com/api/product');
     let dataJson = await data.json();
     this.setState({
@@ -40,6 +39,7 @@ const Products = React.Component{
     });
     return(
       <div className="listings">
+        <h1>Products</h1>
         <h3>{products}</h3>
       </div>
     )

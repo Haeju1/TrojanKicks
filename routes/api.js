@@ -20,9 +20,7 @@ paypal.configure({
 });
 // Get list of products from the db
 router.get('/product', async (req,res,next) => {
-  console.log('Hit the get request');
   const result = await Product.find({});
-  console.log('Products:  ' + result)
   res.send(result);
 });
 
@@ -67,7 +65,6 @@ router.post('/pay', async (req,res)=>{
       } else {
           for(let i=0;i<payment.links.length;i++){
             if(payment.links[i].rel==='approval_url'){
-              console.log(payment.links[i].href);
               res.redirect(payment.links[i].href);
             }
           }
@@ -77,12 +74,8 @@ router.post('/pay', async (req,res)=>{
 
 // If payment successful, execute
 router.get('/success', async (req, res) => {
-
-  console.log('Product ID: '+req.query._id);
   let payerId = req.query.PayerID;
   let paymentId = req.query.paymentId;
-  console.log(req.query.paymentId);
-  console.log(req.query.PayerId);
 
 
   let execute_payment_json = {
@@ -96,11 +89,8 @@ router.get('/success', async (req, res) => {
   };
 paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =>{
     if (error) {
-        console.log('failed')
-        console.log(error.response);
         throw error;
     } else {
-        console.log(JSON.stringify(payment));
 
         // Storing transaction details into database
         await Order.create({
@@ -150,14 +140,11 @@ router.get('/confirmation', (req,res) =>{
     html: '<strong>Thank you for your order! Shipping information will be sent soon!</strong>',
   };
   sgMail.send(msg);
-  console.log(msg);
-  console.log('ho');
   res.redirect('https://trojankicks.herokuapp.com/checkout.html');
 })
 // Adding order to databse
 router.get('/orders', (req,res) =>{
   let paymentId = req.query._paymentId;
-  console.log("Order: " + paymentId + " receieved");
   res.send("Order: " + paymentId + " receieved");
 })
 // If user cancels payment

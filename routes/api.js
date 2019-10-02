@@ -80,12 +80,6 @@ router.get('/success', async (req, res) => {
 
   let execute_payment_json = {
     "payer_id": payerId
-    /*"transactions": [{
-        "amount": {
-            "currency": "USD",
-            "total": 200.00
-        }
-    }]*/
   };
 paypal.payment.execute(paymentId, execute_payment_json, async (error, payment) =>{
     if (error) {

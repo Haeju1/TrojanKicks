@@ -7,6 +7,10 @@
       href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script
       src="https://unpkg.com/react@16/umd/react.development.js"
@@ -22,10 +26,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <header>
-    <h1>TrojanKicks</h1>
     <img
       src="https://lh3.googleusercontent.com/Z8Uq_my9V9Sjcv7kB0wdd-EClVCEPba23Ztk48beHuBXSnhr15MorYD21cSqzymoB2t_bMW7K6zJpDrx9N2KvcgVxs7q6CX4VJ24Y07guFzkHkzh7gwxIVljAnyZ8Lhg0l6K-Coc8aoppopcG24qWWytBNeMqqV2zt_PkmmMhCfO-8BP9qDyK47Pi6BsYfVhBWgNZA1mzydlLPRRMa0Vfth3Fc83KGR7bQdXtMPQ5r4kGkhOya_A_YPBsvpbWreGFCikJiy0mEr5pzzu_aZuKbKTBw7qsR4uraI_ljkzj07J1v84BXn05EuLo6aRLTO3e9EiYNR1ILK1KgTKrsdWLFgHU5cMVzwvPUzxLz0Z4DRlID0SSJt3nwbvf8bQmnk-AOpKGgydb51FYWgoH7OEldY81HrLvUrDxRCTrwNSVdEVah2PqQ3itXsn8DrmY1oTDB_AOVWyPRpbWpQm_bNcheZSkmQemahjKNlKgk6HTSxlFwrkFDo9dnbMwM9IewgRl8mMQANke3KEb_Ab44RvJL23MZUnKqTc_I6y9ZN2gwvG5i29vtuH41bOq0NYblmtzPw6AHmgQ0WQzIKIgFIEKhjzrf729XHpWk54iB97RLG8YZBXGTXpHr1aRIwpOoEB81mIumuSyWjW1COk9fchL-BHUD6j0ybZka4BIGJtN1z1-Q1aKUD6rltZ37x1fbFQUMUugizswpyLPk4DfwszR-q6q-XjdrCkBElnmzSMIxuJgA=w498-h497-no"
     />
+    <h1>TrojanKicks</h1>
+    <div class="icons">
+      <ul>
+        <li><a href="https://www.linkedin.com/in/haejujeong/"
+          ><i class="fa fa-linkedin "></i
+        ></a></li>
+        <li><a href="https://www.instagram.com/haeju_j/"
+          ><i class="fa fa-instagram"></i
+        ></a></li>
+        <li><a href="https://www.facebook.com/haeju.jeong.12"
+          ><i class="fa fa-facebook-official"></i
+        ></a></li>
+        <li href="https://twitter.com/haeju_j"><i class="fa fa-twitter" ></i>
+        </li>
+      </ul>
+    </div>
   </header>
   <body>
     <div class="wrapper">
@@ -39,8 +58,43 @@
       </nav>
     </div>
 
-    <div id="listings">
-      
+    <div id="sale">
+      <h2>For Sale</h2>
+      <div id="listings"></div>
+    </div>
+    <div id="policies">
+      <h2>Policies</h2>
+      <div class="text">
+        <ol>
+          <li>
+            There is a 100% no refund policy
+          </li>
+          <li>
+            All products will be shipped within one week by USPS Priority Mail
+          </li>
+          <li>All items are brand new with original boxes</li>
+          <li>
+            TrojanKicks is not responsible for a failed delivery due to
+            incorrect addresses
+          </li>
+          <li>
+            Tracking information will be provided once item is shipped via email
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div id="about">
+      <h2>About Me</h2>
+      <div class="text">
+        <p>
+          Hi my name is Haeju Jeong, and I am the owner of TrojanKicks. This
+          business serves as a combination of my interests in sneaker resell and
+          web development. This website was coded with Node.js and hosted on
+          heroku. Data regarding products and order details are stored on
+          mongoDB Atlas. All payments are handled and stored securely via
+          Paypal. Stripe will be implemented in the coming weeks.
+        </p>
+      </div>
     </div>
 
     <script type="text/babel">
@@ -69,30 +123,24 @@
             return (
               <div key={product._id} className="product">
                 <img src={product.photoURL}></img>
-                <div>
-                  <div>
-                    <h1>{product.name}</h1>
-                    <h1>Size {product.size}</h1>
-                    <h1>${product.price}</h1>
-                    <form action={purchaseLink} method="post">
-                      <input
-                        type="image"
-                        id="paypal_button"
-                        src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-small.png"
-                        name="submit"
-                        alt="PayPal - The safer, easier way to pay online!"
-                      ></input>
-                    </form>
-                  </div>
+                <div className="product_details">
+                  <h1>{product.name}</h1>
+                  <h1>Size {product.size}</h1>
+                  <h1>${product.price}</h1>
+                  <form action={purchaseLink} method="post">
+                    <input
+                      type="image"
+                      id="paypal_button"
+                      src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-small.png"
+                      name="submit"
+                      alt="PayPal - The safer, easier way to pay online!"
+                    ></input>
+                  </form>
                 </div>
               </div>
             );
           });
-          return (
-            <div className="listings">
-              {products}
-            </div>
-          );
+          return <div className="listings">{products}</div>;
         }
       }
       ReactDOM.render(<Products />, document.getElementById("listings"));

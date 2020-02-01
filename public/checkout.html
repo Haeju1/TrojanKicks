@@ -1,64 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>TrojanKicks</title>
-    <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="checkout_style.css" />
     <link
-      href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
+    href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script
+    src="https://unpkg.com/react@16/umd/react.development.js"
+    crossorigin
+  ></script>
+  <script
+    src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    crossorigin
+  ></script>
+
+  <title>TrojanKicks</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap"
       rel="stylesheet"
     />
     <link
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script
-      src="https://unpkg.com/react@16/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
-      crossorigin
-    ></script>
 
-    <title>TrojanKicks</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/favicons.ico/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons.ico/favicon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicons.ico/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons.ico/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script></script>
   </head>
-  <header>
-    <img
-      src="https://lh3.googleusercontent.com/Z8Uq_my9V9Sjcv7kB0wdd-EClVCEPba23Ztk48beHuBXSnhr15MorYD21cSqzymoB2t_bMW7K6zJpDrx9N2KvcgVxs7q6CX4VJ24Y07guFzkHkzh7gwxIVljAnyZ8Lhg0l6K-Coc8aoppopcG24qWWytBNeMqqV2zt_PkmmMhCfO-8BP9qDyK47Pi6BsYfVhBWgNZA1mzydlLPRRMa0Vfth3Fc83KGR7bQdXtMPQ5r4kGkhOya_A_YPBsvpbWreGFCikJiy0mEr5pzzu_aZuKbKTBw7qsR4uraI_ljkzj07J1v84BXn05EuLo6aRLTO3e9EiYNR1ILK1KgTKrsdWLFgHU5cMVzwvPUzxLz0Z4DRlID0SSJt3nwbvf8bQmnk-AOpKGgydb51FYWgoH7OEldY81HrLvUrDxRCTrwNSVdEVah2PqQ3itXsn8DrmY1oTDB_AOVWyPRpbWpQm_bNcheZSkmQemahjKNlKgk6HTSxlFwrkFDo9dnbMwM9IewgRl8mMQANke3KEb_Ab44RvJL23MZUnKqTc_I6y9ZN2gwvG5i29vtuH41bOq0NYblmtzPw6AHmgQ0WQzIKIgFIEKhjzrf729XHpWk54iB97RLG8YZBXGTXpHr1aRIwpOoEB81mIumuSyWjW1COk9fchL-BHUD6j0ybZka4BIGJtN1z1-Q1aKUD6rltZ37x1fbFQUMUugizswpyLPk4DfwszR-q6q-XjdrCkBElnmzSMIxuJgA=w498-h497-no"
-    />
-    <h1>TrojanKicks</h1>
-    <div class="icons">
-      <ul>
-        <li><a href="https://www.linkedin.com/in/haejujeong/"
-          ><i class="fa fa-linkedin "></i
-        ></a></li>
-        <li><a href="https://www.instagram.com/haeju_j/"
-          ><i class="fa fa-instagram"></i
-        ></a></li>
-        <li><a href="https://www.facebook.com/haeju.jeong.12"
-          ><i class="fa fa-facebook-official"></i
-        ></a></li>
-        <li href="https://twitter.com/haeju_j"><i class="fa fa-twitter" ></i>
-        </li>
-      </ul>
-    </div>
-  </header>
   <body>
-    <div class="wrapper">
-      <nav>
-        <ul>
-          <li><a href="./index.html#sale">FOR SALE</a></li>
-          <li><a href="./index.html#about">ABOUT</a></li>
-          <li><a href="./index.html#policies">POLICIES</a></li>
-          <li><a href="./index.html#contact">CONTACT</a></li>
-        </ul>
-      </nav>
+    <div class="main">
+      <div id="top">
+          <nav>
+              <div class="container">
+                <ul>
+                    <li><img
+                      src="https://lh3.googleusercontent.com/Z8Uq_my9V9Sjcv7kB0wdd-EClVCEPba23Ztk48beHuBXSnhr15MorYD21cSqzymoB2t_bMW7K6zJpDrx9N2KvcgVxs7q6CX4VJ24Y07guFzkHkzh7gwxIVljAnyZ8Lhg0l6K-Coc8aoppopcG24qWWytBNeMqqV2zt_PkmmMhCfO-8BP9qDyK47Pi6BsYfVhBWgNZA1mzydlLPRRMa0Vfth3Fc83KGR7bQdXtMPQ5r4kGkhOya_A_YPBsvpbWreGFCikJiy0mEr5pzzu_aZuKbKTBw7qsR4uraI_ljkzj07J1v84BXn05EuLo6aRLTO3e9EiYNR1ILK1KgTKrsdWLFgHU5cMVzwvPUzxLz0Z4DRlID0SSJt3nwbvf8bQmnk-AOpKGgydb51FYWgoH7OEldY81HrLvUrDxRCTrwNSVdEVah2PqQ3itXsn8DrmY1oTDB_AOVWyPRpbWpQm_bNcheZSkmQemahjKNlKgk6HTSxlFwrkFDo9dnbMwM9IewgRl8mMQANke3KEb_Ab44RvJL23MZUnKqTc_I6y9ZN2gwvG5i29vtuH41bOq0NYblmtzPw6AHmgQ0WQzIKIgFIEKhjzrf729XHpWk54iB97RLG8YZBXGTXpHr1aRIwpOoEB81mIumuSyWjW1COk9fchL-BHUD6j0ybZka4BIGJtN1z1-Q1aKUD6rltZ37x1fbFQUMUugizswpyLPk4DfwszR-q6q-XjdrCkBElnmzSMIxuJgA=w498-h497-no"
+                    /></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li>
+                    <a href="https://twitter.com/snkrcop1/status/1118550304922804225?s=21" target="blank">Reviews</a>
+                  </li>
+                  <li><a href="index.html/#policies">Policies</a></li>
+                  <li>
+                    <a href="mailto:trojankicks@gmail.com">Contact</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </nav>
+            <div></div>
+        <div id="header">
+          <div class="container" class="thankyou">
+              <h1>Thank You! </h1>
+              <p>Thank you for your order! We have sent an email to your Paypal email, please check your spam if it does not show up Your order has been received and will be processed within the next 2 business days! Once the package is shipped, you will receive a tracking number.
+                  Sit tight until then! If you have any questionos, please contact <a href="mailto:trojankicks@gmail.com">trojankicks@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+          <footer>
+            <div class="icons">
+                  <a href="https://www.linkedin.com/in/haejujeong/" target="blank"
+                    ><i class="fa fa-lg fa-linkedin "></i
+                  ></a>
+                  <a href="https://github.com/Haeju1" target="blank"
+                    ><i class="fa fa-lg fa-github"></i
+                  ></a>
+                  <a href="https://www.instagram.com/haeju_j/" target="blank"
+                    ><i class="fa fa-lg fa-instagram"></i
+                  ></a>
+                  <a href="https://www.facebook.com/haeju.jeong.12" target="blank"
+                    ><i class="fa fa-lg fa-facebook-official"></i
+                  ></a>
+                <a href="https://twitter.com/haeju_j" target="blank">
+                  <i class="fa fa-lg fa-twitter"></i>
+            </div>
+          </footer>
+        </div>
     </div>
-    <h1><b>📦ORDER CONFIRMED📦</b></h1>
-    <p>Thank you for your order! We have sent an email to your Paypal email, please check your spam if it does not show up Your order has been received and will be processed within the next 2 business days! Once the package is shipped, you will receive a tracking number.
-      Sit tight until then! If you have any questionos, please contact <a href="mailto:trojankickscom">trojankicks@gmail.com</a></p>
   </body>
 </html>
